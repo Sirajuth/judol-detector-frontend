@@ -121,7 +121,7 @@ export default function App() {
   const [statData, setStatData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://judol-detector-backend.onrender.com/statistik")
+    axios.get("https://judol-detector-production.up.railway.app/statistik")
       .then(res => {
         const colors = ["#6366f1", "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#14b8a6", "#f97316", "#64748b"];
         const dataWithColors = res.data.map((item, idx) => ({

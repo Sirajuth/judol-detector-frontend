@@ -301,7 +301,7 @@ const DataTable = ({ data, tipeInsidenList, refresh, triggerDelete }) => {
 
   const handleChange = async (id, field, value) => {
     try {
-      await axios.put(`https://judol-detector-backend.onrender.com/update`, { id, field, value });
+      await axios.put(`https://judol-detector-production.up.railway.app/update`, { id, field, value });
       refresh();
     } catch {
       alert("Gagal memperbarui data.");
@@ -462,7 +462,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get('https://judol-detector-backend.onrender.com/data');
+      const res = await axios.get('https://judol-detector-production.up.railway.app/data');
       const result = res.data.data || [];
       setData(result);
       setTipeList(res.data.tipe_insiden || []);
@@ -476,7 +476,7 @@ const App = () => {
 
   const fetchGrafik = async () => {
     try {
-      const res = await axios.get('https://judol-detector-backend.onrender.com/grafik');
+      const res = await axios.get('https://judol-detector-production.up.railway.app/grafik');
       const last7Days = Array.from({ length: 7 }, (_, i) => {
         const date = new Date();
         date.setDate(date.getDate() - (6 - i));
@@ -524,7 +524,7 @@ const App = () => {
                   style={{ borderRadius: '8px', fontWeight: '500', backgroundColor: '#ef4444', border: 'none' }}
                   onClick={async () => {
                     try {
-                      await axios.delete(`https://judol-detector-backend.onrender.com/delete/${modalData.id}`);
+                      await axios.delete(`https://judol-detector-production.up.railway.app/delete/${modalData.id}`);
                       fetchData();
                       setModalData({ show: false, id: null });
                     } catch {
