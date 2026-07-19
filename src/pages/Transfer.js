@@ -6,7 +6,7 @@ function App() {
   const [sheetId, setSheetId] = useState('');
   const [data, setData] = useState([]);
   const [fullData, setFullData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false); // 💡 Hapus 'setLoading' karena tidak pernah dipanggil
   const [modal, setModal] = useState({ show: false, message: '' });
 
   // Logika otomatis penutupan modal bawaan Anda tetap dipertahankan
@@ -52,24 +52,6 @@ function App() {
 
     setData(filtered);
   }, [searchTerm, fullData]);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const keyword = searchTerm.toLowerCase().trim();
-
-    const filtered = fullData
-      .filter((row) =>
-        Object.values(row).some((val) =>
-          val && val.toString().toLowerCase().includes(keyword)
-        )
-      )
-      .map((row, idx) => ({
-        ...row,
-        no: idx + 1,
-      }));
-
-    setData(filtered);
-  };
 
   const handleSheetIdSubmit = async (e) => {
     if (e && e.preventDefault) e.preventDefault();

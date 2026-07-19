@@ -1,28 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
-
-// Komponen Tick Kustom bawaan Anda tetap dipertahankan
-const CustomizedAxisTick = ({ x, y, payload }) => {
-  const lines = payload.value.split(' '); 
-  return (
-    <g transform={`translate(${x},${y + 10})`}>
-      {lines.map((line, index) => (
-        <text
-          key={index}
-          x={0}
-          y={index * 12}
-          dy={0}
-          textAnchor="middle"
-          fill="#64748b" 
-          fontSize={11}
-        >
-          {line}
-        </text>
-      ))}
-    </g>
-  );
-};
 
 // Grafik SVG Utama - 100% Logika Internal Dipertahankan & Estetika Diperhalus
 const BarChart = ({ title, data }) => {
