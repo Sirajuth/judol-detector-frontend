@@ -16,7 +16,7 @@ function Login() {
     setErrorMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('https://judol-detector-backend.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

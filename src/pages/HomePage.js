@@ -14,7 +14,7 @@ export default function App() {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/search", { keyword });
+      const res = await axios.post("https://judol-detector-backend.onrender.com/search", { keyword });
       if (res.data && res.data.data) {
         setResults(res.data.data); 
         setSearched(true);

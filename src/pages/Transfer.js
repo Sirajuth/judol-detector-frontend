@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchInitialData = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/data');
+        const res = await axios.get('https://judol-detector-backend.onrender.com/data');
         const fetched = res.data.data.map((row, idx) => ({
           ...row,
           no: idx + 1,
@@ -58,7 +58,7 @@ function App() {
     if (!sheetId) return setModal({ show: true, message: 'Sheet ID tidak boleh kosong.' }); 
 
     try {
-      const res = await axios.post('http://localhost:5000/check-transfer-data', {
+      const res = await axios.post('https://judol-detector-backend.onrender.com/check-transfer-data', {
         sheet_id: sheetId,
       });
 
@@ -78,7 +78,7 @@ function App() {
 
   const handleTransferRow = async (row) => {
     try {
-      await axios.post('http://localhost:5000/transfer-row', {
+      await axios.post('https://judol-detector-backend.onrender.com/transfer-row', {
         sheet_id: sheetId,
         row: {
           url: row.url,
